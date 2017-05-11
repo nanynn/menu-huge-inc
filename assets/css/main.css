@@ -28,6 +28,7 @@ nav {
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-image: url(../img/huge.png);
+	background-size: 100px 100px;
 }
 
 .menu{
@@ -38,5 +39,47 @@ nav {
 	text-align: right;
 	margin: 2rem 2rem;
 	background: #ec008c;
-	transition: all 0,3s;
+	transition: all 0.3s;
+}
+
+.menu:before, .menu:after{
+	content: '';
+	display: block;
+	width: 24px;
+	height: 4px;
+	background: #ec008c;
+	position: absolute;
+	z-index: -1;
+}
+
+.menu:before{
+	top: -8px;
+}
+
+.menu:after{
+	top: 8px;
+}
+
+#toggle:hover .menu:before{
+	top: -9px;
+}
+
+#toggle:hover .menu:after{
+	top: 9px;
+}
+
+.open .menu{
+	background: none !important;
+}
+
+.open .menu:after{
+	top: 0 !important;
+	background: #fff !important;
+	transform: rotate(45deg);
+}
+
+.open .menu:before{
+	top: 0 !important;
+	background: #fff !important;
+	transform: rotate(-45deg);
 }
